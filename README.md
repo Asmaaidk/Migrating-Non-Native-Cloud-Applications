@@ -61,7 +61,7 @@ You will need to install the following locally:
 ## Monthly Cost Analysis
 Complete a month cost analysis of each Azure resource to give an estimate total cost using the table below:
 
-|| Azure Resource | Service Tier | Monthly Cost |
+| Azure Resource | Service Tier | Monthly Cost |
 | ------------ | ------------ | ------------ |
 | *Azure Postgres Database* | Basic     |    $30.38           |
 | *Azure Service Bus*   |    Basic     |     $0.05         |
