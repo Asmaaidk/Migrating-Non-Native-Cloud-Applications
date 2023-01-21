@@ -63,17 +63,21 @@ Complete a month cost analysis of each Azure resource to give an estimate total 
 
 | Azure Resource | Service Tier | Monthly Cost |
 | ------------ | ------------ | ------------ |
-| *Azure Postgres Database* | Basic     |    $30.38           |
+| *Azure Postgres Database* | Basic     |    $35.32          |
 | *Azure Service Bus*   |    Basic     |     $0.05         |
 | *Azure App Service Plan* | B1 | $13.14  |
 | *Azure Function App* | B1(same Server Plan) | ---  |
-| **Total Cost** |  | $43.57 |
+| *Azure Storage Account* | general purpose (V2) | 125.00  |
+| **Total Cost** |  | $173.46 |
 
 ## Architecture Explanation
-For this project App web app was uset since it's quick and easy to setup and since the project dosen't need much this is the cheaper choise.
-Choosing one server plan to run the app and the function app is cost-effective.
 
-By using Azure web app an d function app the website now is:
-- scalable to handle user load.
-- has faster response time and better user experience.
-- it's cost-effective.
+### Drawbacks of Previous architecture:
+ - The web application is not scalable to handle user load at peak
+ - When the admin sends out notifications, it's currently taking a long time because it's looping through all attendees, resulting in some HTTP timeout exceptions
+ - The current architecture is not cost-effective 
+ 
+### Advantages of the current architecture.
+- Using Azure web app and web function, the website now is scalable and can handle user load.
+- The web app triggers the queue and the function fetches the notification id from the queue and processes the mail triggering function and now we have a faster response time and better user experience.
+- The Azure resources used are supported, scalable and the cost depends on the website functionality requirements which make it cost-effective.
